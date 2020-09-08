@@ -1,0 +1,41 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '../shared/styles/devices.scss';
+
+$card-size: 386px;
+
+:host {
+  margin: 32px 0 0 0;
+}
+
+.entity-container {
+  display              : grid;
+  grid-template-columns: repeat(3, $card-size);
+  gap                  : 30px 30px;
+  justify-content      : center;
+
+  @include desktop {
+    grid-template-columns: repeat(2, $card-size);
+  }
+
+  @include tablet {
+    grid-template-columns: $card-size;
+  }
+
+  mat-card {
+    position     : relative;
+    max-width    : 386px;
+    margin-bottom: 24px;
+
+    .entity-image {
+      object-fit: cover;
+      height    : 298px;
+    }
+
+    .entity-rating {
+      position   : absolute;
+      right      : 24px;
+      font-size  : 24px;
+      font-weight: 600;
+    }
+  }
+}
